@@ -4,7 +4,6 @@
 <br>
 検索結果がありません
 <br>
-<return-page></return-page>
 </div>
 </template>
 

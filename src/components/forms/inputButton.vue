@@ -1,9 +1,6 @@
 <template>
   <div>
     <button class="button" v-on:click="validate">START</button>
-    <transition name="fade">
-    <h1 v-if="show" v-on="showScene"></h1>
-    </transition>
   </div>
 </template>
 
@@ -11,9 +8,6 @@
 //  インポートします。
 import PropertyStore from "../../models/PropertyStore.js";
 import axios from "axios";
-import Scene2 from "../Scene2.vue";
-import NoData from "./noData.vue";
-import Loading from "./loading";
 
 export default {
   name: "input-button",
@@ -21,15 +15,17 @@ export default {
     return {
       privateState: {},
       sharedState: PropertyStore,
-      show: false,
-      status: 200
     };
   },
   methods: {
     validate: function(event) {
-      console.log(this.$el);
       let valid = false;
+      let flag = this.sharedState.state.flagData;
       const params = { name: this.$data.sharedState.state.property.name };
+      flag.loadFlag = true;
+      flag.successFlag = false;
+      flag.failedFlag = false;
+
       try {
         valid = this.$data.sharedState.validate();
         if (valid) {
@@ -39,24 +35,21 @@ export default {
               { params }
             )
             .then(response => {
-              this.show = true;
+              flag.loadFlag = false;
+              flag.successFlag = true;
               console.log(response.data); // API Gateway response data
               console.log(response.status); // 200
               console.log(params); // 200
               this.sharedState.state.personalData = response.data;
-              this.status = response.status;
-              this.$router.push("/scene2");
             })
             .catch(error => {
-              this.show = true;
+              flag.loadFlag = false;
+              flag.failedFlag = true;
               console.log(error.response.status); // 200
               console.log("失敗");
-              this.$router.push("/noData");
             });
         }
-        if(this.show == false){
-          this.$router.push("/loading");
-        }
+        this.$router.push("/scene2");
       } catch (e) {
         alert(e.message);
       }
@@ -66,9 +59,6 @@ export default {
     }
   }
 };
-
-//  コンポーネントを登録
-//Vue.component("scene2", Scene2);
 </script>
 
 

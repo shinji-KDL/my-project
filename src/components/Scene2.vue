@@ -1,22 +1,41 @@
 <template>
-  <div class="scene2">
+<div>
+
+  <div v-if="sharedState.state.flagData.loadFlag">
+    <load-page></load-page>
+  </div>
+
+  <div class="scene2" v-if="sharedState.state.flagData.successFlag">
     <nickname-header></nickname-header>
     <get-res></get-res>
     <return-page></return-page>
   </div>
+
+  <div v-if="sharedState.state.flagData.failedFlag">
+    <no-data></no-data>
+    <return-page></return-page>
+  </div>
+
+</div>
 </template>
 
 <script>
 //  インポート
 import Vue from "vue";
-import NameHeader from './forms/nameHeader.vue'
+import NameHeader from "./forms/nameHeader.vue";
 import GetRes from "./forms/getRes.vue";
-import Return from './forms/return.vue'
+import Return from "./forms/return.vue";
+import PropertyStore from "../models/PropertyStore.js";
+import Loading from "./forms/loading.vue";
+import NoData from "./forms/noData.vue";
 
 //  デフォルト値定義
 export default {
   data() {
-    return {};
+    return {
+      privateState: {},
+      sharedState: PropertyStore
+    };
   }
 };
 //  コンポーネントを登録
@@ -25,7 +44,10 @@ Vue.component("nickname-header", NameHeader);
 Vue.component("get-res", GetRes);
 //  コンポーネントを登録
 Vue.component("return-page", Return);
-
+//  コンポーネントを登録
+Vue.component("load-page", Loading);
+//  コンポーネントを登録
+Vue.component("no-data", NoData);
 </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
