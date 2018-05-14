@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Scene1 from '@/components/Scene1'
 import Scene2 from '@/components/Scene2'
 import NoData from '@/components/forms/noData'
+import Loading from '@/components/forms/loading'
+
+
 
 Vue.use(Router)
 
@@ -22,6 +25,11 @@ export default new Router({
       path: '/noData',
       name: 'noData',
       component: NoData
+    },
+    {
+      path: '/loading',
+      name: 'loading',
+      component: Loading
     }
   ]
 })

@@ -13,6 +13,7 @@ import PropertyStore from "../../models/PropertyStore.js";
 import axios from "axios";
 import Scene2 from "../Scene2.vue";
 import NoData from "./noData.vue";
+import Loading from "./loading";
 
 export default {
   name: "input-button",
@@ -38,6 +39,7 @@ export default {
               { params }
             )
             .then(response => {
+              this.show = true;
               console.log(response.data); // API Gateway response data
               console.log(response.status); // 200
               console.log(params); // 200
@@ -46,10 +48,14 @@ export default {
               this.$router.push("/scene2");
             })
             .catch(error => {
+              this.show = true;
               console.log(error.response.status); // 200
               console.log("失敗");
               this.$router.push("/noData");
             });
+        }
+        if(this.show == false){
+          this.$router.push("/loading");
         }
       } catch (e) {
         alert(e.message);
