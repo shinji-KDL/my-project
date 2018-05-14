@@ -2,7 +2,6 @@
   <div class="scene2">
     <nickname-header></nickname-header>
     <get-res></get-res>
-
   </div>
 </template>
 
