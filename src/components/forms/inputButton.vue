@@ -12,6 +12,7 @@
 import PropertyStore from "../../models/PropertyStore.js";
 import axios from "axios";
 import Scene2 from "../Scene2.vue";
+import NoData from "./noData.vue";
 
 export default {
   name: "input-button",
@@ -47,7 +48,7 @@ export default {
             .catch(error => {
               console.log(error.response.status); // 200
               console.log("失敗");
-              this.$router.push("/scene2");
+              this.$router.push("/noData");
             });
         }
       } catch (e) {
