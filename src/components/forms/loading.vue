@@ -12,13 +12,6 @@ export default {
       privateState: {},
       sharedState: PropertyStore
     }
-  },
-  updated: {
-     judge:function(){
-       if(sharedState.state.flagData.successFlag == true || sharedState.state.flagData.failedFlag == true ){
-        //sharedState.state.flagData.loadFlag = false;
-      }
-     }
   }
 }
 </script>
