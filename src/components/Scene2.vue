@@ -2,7 +2,7 @@
   <div class="scene2">
     <nickname-header></nickname-header>
     <get-res></get-res>
-
+    <return-page></return-page>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
 import Vue from "vue";
 import NameHeader from './forms/nameHeader.vue'
 import GetRes from "./forms/getRes.vue";
+import Return from './forms/return.vue'
 
 //  デフォルト値定義
 export default {
@@ -22,6 +23,8 @@ export default {
 Vue.component("nickname-header", NameHeader);
 //  コンポーネントを登録
 Vue.component("get-res", GetRes);
+//  コンポーネントを登録
+Vue.component("return-page", Return);
 
 </script>
 
