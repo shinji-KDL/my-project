@@ -34,7 +34,7 @@ html {
 body{
   height: 100%;
   margin: 0;
-  background-color: silver;
+  background-color: rgb(201, 197, 197);
   text-align: center;
 }
 #app {

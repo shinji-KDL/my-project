@@ -10,6 +10,11 @@ var PropertyStore = {
       name: '',
       card: '',
       address: ''
+    },
+    flagData: {
+      loadFlag: true,
+      successFlag: false,
+      failedFlag: false
     }
   },
   validate() {
