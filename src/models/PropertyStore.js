@@ -15,6 +15,9 @@ var PropertyStore = {
       loadFlag: true,
       successFlag: false,
       failedFlag: false
+    },
+    personalList: {
+      data:[]
     }
   },
   validate() {

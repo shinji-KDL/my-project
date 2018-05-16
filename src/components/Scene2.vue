@@ -7,7 +7,7 @@
 
   <div class="scene2" v-if="sharedState.state.flagData.successFlag">
     <nickname-header></nickname-header>
-    <get-res></get-res>
+    <table-data></table-data>
     <return-page></return-page>
   </div>
 
@@ -28,6 +28,7 @@ import Return from "./forms/return.vue";
 import PropertyStore from "../models/PropertyStore.js";
 import Loading from "./forms/loading.vue";
 import NoData from "./forms/noData.vue";
+import Table from "./forms/table.vue";
 
 //  デフォルト値定義
 export default {
@@ -48,6 +49,8 @@ Vue.component("return-page", Return);
 Vue.component("load-page", Loading);
 //  コンポーネントを登録
 Vue.component("no-data", NoData);
+//  コンポーネントを登録
+Vue.component("table-data", Table);
 </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->

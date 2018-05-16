@@ -1,14 +1,14 @@
-</<template>
+<<template>
   <div>
-      <ul>
-        <li>氏名:{{sharedState.state.personalData.name}}</li>
-        <li>カード番号:{{sharedState.state.personalData.card}}</li>
-        <li>住所:{{sharedState.state.personalData.address}}</li>
-      </ul>
-      </div>
+    <ul>
+      <li>氏名:{{sharedState.state.personalData.name}}</li>
+      <li>カード番号:{{sharedState.state.personalData.card}}</li>
+      <li>住所:{{sharedState.state.personalData.address}}</li>
+    </ul>
+  </div>
 </template>
-
 <script>
+
 import axios from "axios";
 import PropertyStore from "../../models/PropertyStore.js";
 
