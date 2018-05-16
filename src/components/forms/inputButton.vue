@@ -28,6 +28,7 @@ export default {
 
       try {
         valid = this.$data.sharedState.validate();
+        let testData = [];
         if (valid) {
           axios
             .get(
@@ -40,12 +41,14 @@ export default {
               console.log(response.data); // API Gateway response data
               console.log(response.status); // 200
               console.log(params); // 200
-              this.sharedState.state.personalData = response.data;
+              //this.sharedState.state.personalData = response.data;
+              this.sharedState.state.personalList.data = response.data;
+              console.log("Test Data:" + this.sharedState.state.personalList.data[0].name);
             })
             .catch(error => {
               flag.loadFlag = false;
               flag.failedFlag = true;
-              console.log(error.response.status); // 200
+              console.log(error.response.status); // 404
               console.log("失敗");
             });
         }
